@@ -25,12 +25,11 @@ int replace (char oldchar, char newchar, char* where) {
 int evaluate (char* expression) {
 	// check if starts with >
 	int temp = 0;
-	if ((temp = findf()) != NOT_FOUND) {
+	if ((temp = findf(';',expression,0)) != NOT_FOUND) { // TODO make recursive call if ';' or '(' found
 
 	}
 	if ((temp = findf('>',expression,0)) != NOT_FOUND) {
 		printf("%s", expression+temp);
 		break;
 	}
-	// make recursive call if ';' or '(' found
 }
