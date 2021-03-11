@@ -18,18 +18,37 @@ int findf (char what, char* where, int start) {
 	return index;
 }
 
+/*
 int replace (char oldchar, char newchar, char* where) {
-	
+
+}
+*/
+
+int pow_ (int base, int exp) {
+	if (exp == 0) {
+		return 1;
+	}
+	return base * pow_(base,exp-1);
+}
+
+int eval_single (char* expression) {
+
 }
 
 int evaluate (char* expression) {
-	// check if starts with >
-	int temp = 0;
-	if ((temp = findf(';',expression,0)) != NOT_FOUND) { // TODO make recursive call if ';' or '(' found
-
+	if (findf(';',expression,0)) {
+		int temp = 0;
+		int prev = 0;
+		char* expression2 = (char*)malloc(BUFLEN);
+		while ((temp = findf(';',expression,temp+1)) != NOT_FOUND) {
+			memset(expression2,0,BUFLEN);
+			memcpy(expression2,expression,temp);
+			eval_single(expression2+prev);
+			prev = temp+1;
+		}
+		free(expression2);
+	} else {
+		eval_single(expression);
 	}
-	if ((temp = findf('>',expression,0)) != NOT_FOUND) {
-		printf("%s", expression+temp);
-		break;
-	}
+	return 0;
 }

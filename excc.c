@@ -11,6 +11,10 @@ int main (int argc, char** argv) {
 	}
 
 	while(fgets(buffer, BUFLEN, fp)) {
+		int temp = 0;
+		if ((temp = findf('\n',buffer,0)) != NOT_FOUND) {
+			buffer[temp] = '\0';
+		}
 	    evaluate(buffer);
 	}
 }
