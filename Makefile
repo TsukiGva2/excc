@@ -1,5 +1,4 @@
 CC=cc
 
 all:
-	$(CC) -o excc excc.c -Wall
-		./excc
+	$(CC) -o excc excc.c interpreter.c -Wall

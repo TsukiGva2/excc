@@ -1,10 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#define NOT_FOUND -1
-#define min(a,b) a>b?b:a
-#define BUFLEN 255
+#include "interpreter.h"
 
 int findf (char what, char* where, int start) {
 	int index = NOT_FOUND;
@@ -32,7 +26,7 @@ int pow_ (int base, int exp) {
 }
 
 int eval_single (char* expression) {
-
+	printf("%s\n", expression);
 }
 
 int evaluate (char* expression) {

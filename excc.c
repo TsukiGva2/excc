@@ -1,4 +1,4 @@
-#include "excc.h"
+#include "interpreter.h"
 
 int main (int argc, char** argv) {
 
